@@ -348,6 +348,11 @@ class Bishop(Piece):  # Läufer
                 new_row, new_col = new_cell
                 # Based on the new cell we created with the direction the rook can move into, we create a new cell which checks another cell in the direction
                 new_cell = (new_row + i, new_col + j)
+            
+            # Loop stops if it finds cell which isn't empty, now cheks if piece is of the opposing color (we can hit)
+            if self.board.piece_can_hit_on_cell(self, new_cell):
+                # if so append to the list
+                reachable_cells.append(new_cell)
         
         # returns list with reachable cells
         return reachable_cells
