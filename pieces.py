@@ -341,7 +341,7 @@ class Bishop(Piece):  # Läufer
             new_cell = (row + i, col + j)
 
             # Loop through every cell that is valid and empty, based on the possible cells the bishop could move into
-            while self.can_enter_cell(new_cell):
+            while self.board.cell_is_valid_and_empty(new_cell):
                 # If cell is valid and empty it's getting added to the reachable_cells list
                 reachable_cells.append(new_cell)
                 # Unpack the new cell into row and col
